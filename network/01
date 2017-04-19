@@ -1,0 +1,1 @@
+ifconfig  | sed 's/[ 	].*//g;/^	/d' | grep : | sed 's/://g'
