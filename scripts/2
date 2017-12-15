@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+CRON=my-cron
+
+crontab -l > /tmp/$CRON
+
+echo "00 04 * * 1 (sudo apt-get update && sudo apt-get upgrade -y) | sudo tee /var/log/update_script.log" >> /tmp/$CRON
+
+crontab /tmp/$CRON
+rm /tmp/$CRON
