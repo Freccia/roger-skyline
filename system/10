@@ -1,2 +1,3 @@
-lsblk
-sfdisk -l
+#sudo lsblk
+#sudo sfdisk -l
+sudo fdisk -l

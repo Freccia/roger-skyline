@@ -1,3 +1,1 @@
 /etc/hosts
-#It serves the function of translating human-friendly hostnames into numeric protocol addresses,
-called IP addresses, that identify and locate a host in an IP network.

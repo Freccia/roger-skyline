@@ -1,2 +1,2 @@
+#service ssh status
 systemctl status sshd
-service ssh status

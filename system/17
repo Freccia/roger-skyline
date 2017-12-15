@@ -1,1 +1,2 @@
-iptables -L -v || iptables -S
+#iptables -S
+iptables -L -v

@@ -1,1 +1,2 @@
-ifconfig  | sed 's/[ 	].*//g;/^	/d' | grep : | sed 's/://g'
+#ifconfig | grep -C 3 en0 | grep inet  | sed 's/netmask.*$//g;s/     inet //g'
+ip a | grep "[0-9]: " | sed 's/^[0-9]\{1,\}: //g' | sed 's/: <.*$//'

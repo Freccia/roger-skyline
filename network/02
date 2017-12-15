@@ -1,1 +1,2 @@
-ifconfig | grep -C 3 en0 | grep inet  | sed 's/netmask.*$//g;s/     inet //g'
+#ifconfig | grep -C 3 en0 | grep inet  | sed 's/netmask.*$//g;s/     inet //g'
+ip a | awk '/inet /{print $2}'| sed '/127\.0\.0\.1/d'
