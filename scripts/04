@@ -8,16 +8,20 @@ CRONTAB=/etc/crontab
 cat <<EOF > $NAME
 #!/bin/sh
 cat $CRONTAB | shasum -a 256 > $CRON_TMP
-diff $CRON $CRON_TMP
+if [ -f $CRON ]; then
+	diff $CRON $CRON_TMP
+else
+	echo "$CRON does not exist"
+fi
 if [ \$? -ne "0" ]
 then
-	echo 'The cron tasks were modified!' | mail -s "Cron was modified, timestamp: `stat -c %Z $CRONTAB`" root@localhost
-	cat $CRONTAB | shasum -a 256 > $CRON
+	echo "The cron tasks were modified!, timestamp: `stat -c %Z $CRONTAB`" | mail -s "Cron was modified" root@localhost
 fi
+cat $CRONTAB | shasum -a 256 > $CRON
 EOF
 
+crontab -l > $CRON_TMP
 chmod 755 $NAME \
-	&& crontab -l > $CRON_TMP \
 	&& echo "0 0 * * * $NAME" >> $CRON_TMP \
 	&& crontab $CRON_TMP \
 	&& rm $CRON_TMP
