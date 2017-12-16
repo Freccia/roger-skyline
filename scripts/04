@@ -11,7 +11,7 @@ cat $CRONTAB | shasum -a 256 > $CRON_TMP
 if [ -f $CRON ]; then
 	diff $CRON $CRON_TMP
 else
-	echo "$CRON does not exist"
+	echo "$CRON does not exist yet" #returns 0
 fi
 if [ \$? -ne "0" ]
 then

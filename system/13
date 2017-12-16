@@ -1,2 +1,3 @@
 #ps aux
+#top
 ps -A

@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-printf 42
+printf "42"
