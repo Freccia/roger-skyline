@@ -1,1 +1,2 @@
-reboot
+#service sshd restart
+systemctl restart sshd

@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 
-if [ $# -ne 1 ];then
-	echo "Usage: 3 /path/to/folder"
+if [ $# -lt 1 ];then
+	echo "Usage: 03 /path/to/folder"
 	exit 1
 fi
 
-ls -S $1
+ls -S $@

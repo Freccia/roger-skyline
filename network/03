@@ -1,3 +1,4 @@
 #ifconfig | grep -C 1 awdl0 | grep ether | sed 's/	ether //g'
 # change ether with wifi
-ip a | awk '/link\/ether /{print $2}'
+#ip a | grep -C 2 eth | awk '/link\/ether /{print $2}'
+ip a | grep -C 2 -e wlan -e wlp | awk '/link\/ether /{print $2}'

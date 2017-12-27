@@ -1,6 +1,2 @@
-#Modifier le fichier /etc/hosts comme ceci:
-127.0.0.1       localhost
-255.255.255.255 broadcasthost
-::1             localhost
-62.210.207.183	intra.42.fr
-163.172.250.1   intra.42.fr
+#Ajouter cette ligne au fichier /etc/hosts:
+163.172.250.11   intra.42.fr

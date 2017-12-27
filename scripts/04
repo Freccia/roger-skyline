@@ -1,8 +1,8 @@
 #!/bin/bash
 
 NAME=$HOME/.check_crontab.sh
-CRON_TMP=/tmp/cron.tmp
 CRON="$HOME/.cron__sha256"
+CRON_TMP=/tmp/cron.tmp # tmp sha256
 CRONTAB=/etc/crontab
 
 cat <<EOF > $NAME
@@ -15,7 +15,8 @@ else
 fi
 if [ \$? -ne "0" ]
 then
-	echo "The cron tasks were modified!, timestamp: `stat -c %Z $CRONTAB`" | mail -s "Cron was modified" root@localhost
+  echo "The cron tasks were modified!"
+	echo "The cron tasks were modified!" | mail -s "Cron was modified at timestamp: \`stat -c %Z $CRONTAB\`" root
 fi
 cat $CRONTAB | shasum -a 256 > $CRON
 EOF
